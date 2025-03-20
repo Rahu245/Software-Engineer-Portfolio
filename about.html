@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Deepak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About page specific styles */
+        .about-section {
+            padding: 8rem 0 4rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .about-image {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .skills-section {
+            padding: 4rem 0;
+            background: var(--background-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+            padding: 0 1rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .progress-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--background-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+
+        .resume-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .resume-card {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 4rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .resume-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #007bff;
+        }
+
+        .resume-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .resume-card p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resume-card .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resume-card .btn:hover {
+            transform: translateY(-2px);
+            background: #0056b3;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+        }
+
+        .resume-card .btn i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                margin-bottom: 2rem;
+                max-width: 80%;
+            }
+
+            .about-image::after {
+                display: none;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .about-content h2 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .social-links .btn {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .resume-section {
+                padding: 4rem 1rem 3rem;
+                background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
+            }
+
+            .resume-card {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+                border-radius: 15px;
+                box-shadow: 0 5px 20px rgba(0, 123, 255, 0.08);
+            }
+
+            .resume-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                padding: 0 0.5rem;
+            }
+
+            .resume-card p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                padding: 0 0.5rem;
+                line-height: 1.5;
+            }
+
+            .resume-card .btn {
+                width: 100%;
+                max-width: 250px;
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+                justify-content: center;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resume-section {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .resume-card {
+                margin: 0.5rem;
+                padding: 1.75rem 1.25rem;
+            }
+
+            .resume-card h3 {
+                font-size: 1.35rem;
+            }
+
+            .resume-card p {
+                font-size: 0.95rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .resume-card .btn {
+                padding: 0.75rem 1.25rem;
+                max-width: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-code"></i>
+                Deepak
+            </a>
+            <button class="mobile-nav-toggle" aria-controls="nav-links" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links" data-visible="false">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="education.html" class="nav-link">Education</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content fade-up">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm Deepak, a passionate Full Stack Developer and AI Engineer with 3+ years of experience
+                        in creating innovative digital solutions. I specialize in building scalable web applications and
+                        implementing cutting-edge AI solutions.</p>
+                    <p>My journey in technology started with a deep curiosity about how things work in the digital
+                        world. Today, I combine my expertise in full-stack development with artificial intelligence to
+                        create impactful solutions that solve real-world problems.</p>
+                    <div class="social-links" style="margin-top: 2rem;">
+                        <a href="/assets/Deepak Resume.pdf" class="btn btn-secondary" style="margin-right: 1rem;">
+                            <i class="fas fa-download"></i>
+                            Download CV
+                        </a>
+                        <a href="contact.html" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="about-image fade-up">
+                    <img src="assets/profile.jpg" alt="Deepak">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title fade-up">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-up">
+                    <h3>Frontend Development</h3>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>React</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category fade-up">
+                    <h3>Backend Development</h3>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>Node.js</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>Python</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="92"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>SQL</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category fade-up">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>TensorFlow</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>PyTorch</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>Natural Language Processing</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="88"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category fade-up">
+                    <h3>Tools & Technologies</h3>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>Git</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="92"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>Docker</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-title">
+                            <span>AWS</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section">
+        <div class="container">
+            <h2 class="section-title fade-up">My Resume</h2>
+            <div class="resume-card fade-up">
+                <h3>Ready to Learn More?</h3>
+                <p>Download my resume to explore my 5+ years of experience in full-stack development, AI engineering,
+                    and innovative solutions that make a real impact.</p>
+                <a href="assets/Deepak Resume.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-file-download"></i>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Me</h3>
+                    <p>Software Developer & AI Engineer passionate about creating innovative solutions and pushing
+                        technological boundaries.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/phoenixdev100" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/phoenixdev100" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://codolio.com/profile/phoenixdev100" class="social-link"><i class="fa fa-code"
+                                aria-hidden="true"></i></a>
+                        <a href="mailto:support@phoenixdev100.tech" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Skills</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">AI/ML</a></li>
+                        <li><a href="#">Cloud Computing</a></li>
+                        <li><a href="#">DevOps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li> <a href="mailto:support@phoenixdev100.tech">support@phoenixdev100.tech</a>
+                        </li>
+                        <li></i> <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li></i> <a href="#">Delhi, India</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deepak. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
