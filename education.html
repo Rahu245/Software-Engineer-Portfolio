@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Deepak's educational background, certifications, and professional experience in software development and AI engineering. View academic achievements and technical certifications.">
+    <meta name="keywords" content="Software Developer Education, AI Engineer Certifications, Technical Qualifications, Professional Experience, Academic Background, Learning Journey">
+    <meta name="author" content="Deepak">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Education & Experience - Deepak">
+    <meta property="og:description" content="Discover my educational journey, professional certifications, and work experience in software development and artificial intelligence.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Education & Experience - Deepak">
+    <meta name="twitter:description" content="View my academic qualifications, technical certifications, and professional experience in software development.">
+    <link rel="canonical" href="education.html">
+    <title>Education - Deepak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="canonical" href="https://phoenixdev100.tech/education.html" />
+    <style>
+        .section-container {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-container:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .edu-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-subtitle {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .exp-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .exp-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .exp-date {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Certifications Section */
+        .cert-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cert-image {
+            height: 160px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cert-image i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .cert-content {
+            padding: 1.5rem;
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .cert-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        .education-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 4rem auto;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: var(--font-size-xl);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .certification-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .certification-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(var(--primary-rgb), 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .certification-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .certification-title {
+            font-size: var(--font-size-lg);
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-issuer {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .certification-date {
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .section-container {
+                padding: 4rem 0;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                margin: 2rem auto;
+                padding: 1.5rem;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .timeline-content {
+                padding: 1.25rem;
+            }
+
+            .certifications {
+                gap: 1.5rem;
+                padding: 1.5rem 0;
+            }
+
+            .certification-card {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .timeline {
+                margin: 1.5rem auto;
+                padding: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .timeline-content {
+                padding: 1rem;
+            }
+
+            .timeline-title {
+                font-size: var(--font-size-lg);
+            }
+
+            .certifications {
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .certification-card {
+                padding: 1rem;
+            }
+
+            .certification-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .certification-icon i {
+                font-size: 20px;
+            }
+
+            .certification-title {
+                font-size: var(--font-size-base);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-code"></i>
+                Deepak
+            </a>
+            <button class="mobile-nav-toggle" aria-controls="nav-links" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links" data-visible="false">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="education.html" class="nav-link active">Education</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Education Section -->
+    <section class="education-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Education Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-date">2020 - Present</div>
+                    <h3 class="timeline-title">Bachelor of Technology in Computer Science</h3>
+                    <div class="timeline-subtitle">University Name</div>
+                    <div class="timeline-content">
+                        <p>Currently pursuing with a focus on AI/ML and Web Technologies. Maintaining a CGPA of 8.5/10.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-date">2018 - 2020</div>
+                    <h3 class="timeline-title">Higher Secondary Education</h3>
+                    <div class="timeline-subtitle">School Name</div>
+                    <div class="timeline-content">
+                        <p>Completed with 95% in Science stream with Computer Science as an elective.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section-container">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card" data-aos="fade-up">
+                    <div class="exp-header">
+                        <div class="exp-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3>Software Developer Intern</h3>
+                            <div class="exp-date">Jun 2023 - Present</div>
+                        </div>
+                    </div>
+                    <p>Working on full-stack development using React and Node.js. Implemented key features and improved
+                        application performance.</p>
+                </div>
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="exp-header">
+                        <div class="exp-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div>
+                            <h3>Project Lead</h3>
+                            <div class="exp-date">Jan 2023 - May 2023</div>
+                        </div>
+                    </div>
+                    <p>Led a team of 4 developers in building an AI-powered recommendation system. Managed project
+                        timeline and deliverables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section-container">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Certifications</h2>
+            <div class="certifications">
+                <div class="certification-card" data-aos="fade-up">
+                    <div class="certification-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="certification-title">Machine Learning Specialization</div>
+                    <div class="certification-issuer">Coursera - Stanford University</div>
+                    <div class="certification-date">2022</div>
+                </div>
+                <div class="certification-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="certification-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certification-title">Full Stack Web Development</div>
+                    <div class="certification-issuer">Udemy</div>
+                    <div class="certification-date">2021</div>
+                </div>
+                <div class="certification-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="certification-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="certification-title">AWS Cloud Practitioner</div>
+                    <div class="certification-issuer">Amazon Web Services</div>
+                    <div class="certification-date">2020</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Me</h3>
+                    <p>Software Developer & AI Engineer passionate about creating innovative solutions and pushing
+                        technological boundaries.</p>
+                    <!-- <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div> -->
+                    <div class="social-links">
+                        <a href="https://github.com/phoenixdev100" class="social-link" aria-label="Visit my github profile"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/phoenixdev100" class="social-link" aria-label="Visit my linkedin profile"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://codolio.com/profile/phoenixdev100" class="social-link" aria-label="Visit my codolio profile"><i class="fa fa-code"
+                                aria-hidden="true"></i></a>
+                        <a href="mailto:support@phoenixdev100.tech" class="social-link" title="Email" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Skills</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">AI/ML</a></li>
+                        <li><a href="#">Cloud Computing</a></li>
+                        <li><a href="#">DevOps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@phoenixdev100.tech">support@phoenixdev100.tech</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li><a href="#">Delhi, India</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deepak. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+
+</html>
