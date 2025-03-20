@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Deepak's portfolio of innovative projects in software development, AI/ML, and web development. View detailed case studies of full-stack applications, machine learning models, and cloud solutions.">
+    <meta name="keywords" content="Software Development Projects, AI Projects, Web Development Portfolio, Full Stack Applications, Machine Learning Models, Cloud Solutions, Technical Portfolio">
+    <meta name="author" content="Deepak">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Projects Portfolio - Deepak">
+    <meta property="og:description" content="Browse through my collection of innovative software projects, including AI applications, web development solutions, and cloud implementations.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects Portfolio - Deepak">
+    <meta name="twitter:description" content="Discover my portfolio of software development projects, featuring AI/ML applications and modern web solutions.">
+    <link rel="canonical" href="projects.html">
+    <title>Projects - Deepak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="canonical" href="https://phoenixdev100.tech/projects.html" />
+    <style>
+        .projects-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: -1rem auto 3rem;
+            line-height: 1.6;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: white;
+            border-radius: 12px;
+            color: var(--text-color);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 1rem;
+            min-height: 400px;
+            justify-content: center;
+        }
+
+        .project-card {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            padding-top: 52%;
+            /* Slightly shorter aspect ratio */
+        }
+
+        .project-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 1.25rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: var(--font-size-lg);
+            color: var(--text-color);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            font-size: var(--font-size-base);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary-color);
+            border-radius: 8px;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link.primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .project-link.secondary {
+            background: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary-color);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-link i {
+            font-size: var(--font-size-sm);
+        }
+
+        @media (max-width: 1200px) {
+            .projects-grid {
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+                padding: 1rem;
+            }
+
+            .project-content {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                padding: 0.75rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .project-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-code"></i>
+                Deepak
+            </a>
+            <button class="mobile-nav-toggle" aria-controls="nav-links" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links" data-visible="false">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="education.html" class="nav-link">Education</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Projects</h2>
+            <p class="section-subtitle" data-aos="fade-up">Here are some of my featured projects that showcase my skills
+                and experience</p>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+                <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card" data-aos="fade-up" data-category="ai web">
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="AI Image Recognition">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI Image Recognition</h3>
+                        <p class="project-description">Deep learning model for real-time object detection and
+                            classification using TensorFlow and OpenCV.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">OpenCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-category="web cloud">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="E-Commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">Full-stack e-commerce solution with React, Node.js, and AWS
+                            infrastructure.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="mobile ai">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Mobile Health App">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mobile Health App</h3>
+                        <p class="project-description">Health monitoring app with ML-powered activity recognition and
+                            personalized recommendations.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">ML Kit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card" data-aos="fade-up" data-category="web cloud">
+                    <div class="project-image">
+                        <img src="images/project4.jpg" alt="Cloud Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cloud Monitoring Dashboard</h3>
+                        <p class="project-description">Real-time cloud infrastructure monitoring dashboard with advanced
+                            analytics.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Docker</span>
+                            <span class="project-tag">Kubernetes</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 5 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-category="web">
+                    <div class="project-image">
+                        <img src="images/project5.jpg" alt="Portfolio Website">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Modern Portfolio Website</h3>
+                        <p class="project-description">Responsive portfolio website with modern UI/UX and smooth
+                            animations.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 6 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="mobile">
+                    <div class="project-image">
+                        <img src="images/project6.jpg" alt="Food Delivery App">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Food Delivery App</h3>
+                        <p class="project-description">Cross-platform food delivery application with real-time order
+                            tracking.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Redux</span>
+                            <span class="project-tag">Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Me</h3>
+                    <p>Software Developer & AI Engineer passionate about creating innovative solutions and pushing
+                        technological boundaries.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/phoenixdev100" class="social-link" aria-label="Visit my github profile"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/phoenixdev100" class="social-link" aria-label="Visit my linkedin profile"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <a href="https://codolio.com/profile/phoenixdev100" class="social-link" aria-label="Visit my codolio profile"><i class="fa fa-code"
+                                    aria-hidden="true"></i></a>
+                            <a href="mailto:support@phoenixdev100.tech" class="social-link" title="Email" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Skills</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">AI/ML</a></li>
+                        <li><a href="#">Cloud Computing</a></li>
+                        <li><a href="#">DevOps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@phoenixdev100.tech">support@phoenixdev100.tech</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li><a href="#">Delhi, India</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deepak. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script>
+        // Project filtering with smooth transitions
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectsGrid = document.querySelector('.projects-grid');
+
+            const filterProjects = (filterValue) => {
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        card.style.display = '';
+                        requestAnimationFrame(() => {
+                            card.classList.remove('hidden');
+                        });
+                    } else {
+                        card.classList.add('hidden');
+                        card.addEventListener('transitionend', () => {
+                            if (card.classList.contains('hidden')) {
+                                card.style.display = 'none';
+                            }
+                        }, { once: true });
+                    }
+                });
+            };
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+                    filterProjects(filterValue);
+                });
+            });
+
+            // Initialize grid layout
+            filterProjects('all');
+        });
+    </script>
+</body>
+
+</html>
